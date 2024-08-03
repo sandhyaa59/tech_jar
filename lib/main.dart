@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_jar/controllers/navigation_controller.dart';
 import 'package:tech_jar/utils/route.dart';
+import 'package:tech_jar/widget/theme.dart';
 
 void main() {
   runApp( MyApp());
@@ -17,13 +18,7 @@ NavigationController navigationController = Get.put(NavigationController());
     return GetMaterialApp(
       color: Colors.white,
       title: 'Tech Jar',
-       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: const Color(0xff596cff),
-          unselectedItemColor: Colors.grey.shade600,
-        ),
-      ),
+      theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
     initialRoute: Routes.INITIAL_LOAD,
       getPages: AppPages.pages,

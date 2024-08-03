@@ -6,11 +6,11 @@ import 'dart:convert';
 
 List<Post> postFromJson(String str) {
     final jsonData = json.decode(str);
-    return new List<Post>.from(jsonData.map((x) => Post.fromJson(x)));
+    return  List<Post>.from(jsonData.map((x) => Post.fromJson(x)));
 }
 
 String postToJson(List<Post> data) {
-    final dyn = new List<dynamic>.from(data.map((x) => x.toJson()));
+    final dyn =  List<dynamic>.from(data.map((x) => x.toJson()));
     return json.encode(dyn);
 }
 

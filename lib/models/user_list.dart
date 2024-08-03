@@ -45,6 +45,16 @@ class Users {
         website: json["website"],
         company: Company.fromJson(json["company"]),
     );
+    factory Users.fromJsonDb(Map<String, dynamic> json) =>  Users(
+        id: json["id"],
+        name: json["name"],
+        username: json["username"],
+        email: json["email"],
+        // address: Address.fromJson(json["address"]),
+        phone: json["phone"],
+        website: json["website"],
+        // company: Company.fromJson(json["company"]),
+    );
 
     Map<String, dynamic> toJson() => {
         "id": id,
