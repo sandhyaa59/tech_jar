@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tech_jar/controllers/navigation_controller.dart';
 import 'package:tech_jar/utils/route.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
+NavigationController navigationController = Get.put(NavigationController());
 
   // This widget is the root of your application.
   @override

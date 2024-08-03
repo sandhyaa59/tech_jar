@@ -7,7 +7,7 @@ class BottomNavBar extends StatelessWidget {
    
 
   BottomNavBar({super.key});
-NavigationController navigationController = Get.put(NavigationController());
+NavigationController navigationController = Get.find<NavigationController>();
   void _onItemTapped(int index) {
     navigationController.changeIndex(index);
     switch (index) {

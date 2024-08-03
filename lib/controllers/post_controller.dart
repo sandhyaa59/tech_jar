@@ -59,3 +59,77 @@ var postId = 0;
     }
   }
 }
+
+
+
+// class PostController extends GetxController {
+//   var isLoading = false.obs;
+//   var postList = <Post>[].obs;
+//   var commentsList = <Comments>[].obs;
+//   var postId = 0;
+//   var comment = Comments().obs;
+
+//   final DatabaseHelper _dbHelper = DatabaseHelper();
+
+//   @override
+//   void onInit() {
+//     super.onInit();
+//     fetchPosts();
+//     fetchComments();
+//   }
+
+//   Future<void> fetchPosts() async {
+//     try {
+//       isLoading.value = true;
+//       postList.value = await _dbHelper.getPosts();
+//       if (postList.isEmpty) {
+//         var postsFromApi = await PostService.fetchPost();
+//         if (postsFromApi.isNotEmpty) {
+//           postList.value = postsFromApi;
+//           for (var post in postsFromApi) {
+//             await _dbHelper.insertPost(post);
+//           }
+//         }
+//       }
+//     } catch (e) {
+//       debugPrint(e.toString());
+//     } finally {
+//       isLoading.value = false;
+//     }
+//   }
+
+//   Future<void> fetchComments() async {
+//     try {
+//       isLoading.value = true;
+//       commentsList.value = await _dbHelper.getComments();
+//       if (commentsList.isEmpty) {
+//         var commentsFromApi = await PostService.fetchComments();
+//         if (commentsFromApi.isNotEmpty) {
+//           commentsList.value = commentsFromApi;
+//           for (var comment in commentsFromApi) {
+//             await _dbHelper.insertComment(comment);
+//           }
+//         }
+//       }
+//     } catch (e) {
+//       debugPrint(e.toString());
+//     } finally {
+//       isLoading.value = false;
+//     }
+//   }
+
+//   Future<void> addComment(String name, String body) async {
+//     try {
+//       isLoading.value = true;
+//       var newComment = await PostService.addComments(postId, name, body);
+//       if (newComment != null) {
+//         commentsList.add(newComment);
+//         await _dbHelper.insertComment(newComment);
+//       }
+//     } catch (e) {
+//       debugPrint(e.toString());
+//     } finally {
+//       isLoading.value = false;
+//     }
+//   }
+// }
