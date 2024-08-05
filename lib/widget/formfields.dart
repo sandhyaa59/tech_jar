@@ -6,13 +6,7 @@ TextFormField customFormField(
   return TextFormField(
       textInputAction: TextInputAction.next,
       autofocus: true,
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Enter Name';
-        } else {
-          return null;
-        }
-      },
+     
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
@@ -20,7 +14,7 @@ TextFormField customFormField(
         contentPadding: const EdgeInsets.all(12.0),
         focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-         color: const Color(0xff939185),
+         color:  Color(0xff939185),
         )),
         errorBorder:
             const OutlineInputBorder(borderSide: BorderSide(color: Colors.red)),
@@ -30,7 +24,7 @@ TextFormField customFormField(
         )),
         enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-         color: const Color(0xff939185)
+         color:  Color(0xff939185)
         )),
       ));
 }

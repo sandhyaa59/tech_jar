@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tech_jar/controllers/photo_controller.dart';
+import 'package:tech_jar/widget/appbar.dart';
 import 'package:tech_jar/widget/error_message.dart';
 import 'package:tech_jar/widget/navigation_bar.dart';
 
@@ -11,8 +12,8 @@ class PhotosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Photos'),
+      appBar: CustomAppBar(
+        title: 'Photos'
       ),
       bottomNavigationBar: BottomNavBar(),
       body: Obx(() {

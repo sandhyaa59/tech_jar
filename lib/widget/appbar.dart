@@ -20,17 +20,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: Theme.of(context).appBarTheme.titleTextStyle,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            title,
+            style: Theme.of(context).appBarTheme.titleTextStyle,
+          ),
+          // centerTitle: centerTitle,
+          backgroundColor: backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
+          actions: actions,
+          bottom: bottom,
+          leading: leading,
         ),
-        centerTitle: centerTitle,
-        backgroundColor: backgroundColor ?? Theme.of(context).appBarTheme.backgroundColor,
-        actions: actions,
-        bottom: bottom,
-        leading: leading,
       ),
     );
   }

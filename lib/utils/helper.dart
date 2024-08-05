@@ -19,6 +19,12 @@ return Get.showSnackbar(GetSnackBar(message: message,backgroundColor: color,titl
       var res = response.body;
     
       return res;
+    }
+   else if (response.statusCode == 201) {
+      // Successful response
+      var res = response.body;
+    
+      return res;
     } else if (response.statusCode >= 400) {
       // Error response
       showToastMessage(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_jar/controllers/todo_controller.dart';
+import 'package:tech_jar/widget/appbar.dart';
 import 'package:tech_jar/widget/navigation_bar.dart';
 
 class TodoScreen extends StatelessWidget {
@@ -8,8 +9,8 @@ class TodoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Todo'),
+      appBar: CustomAppBar(
+        title: 'Todo'
       ),
       bottomNavigationBar: BottomNavBar(),
       body: Obx(() {

@@ -47,21 +47,21 @@ class PostService {
     }
   }
 
-static Future<dynamic> addComments(int postId, String name, String body) async {
+  static Future<dynamic> addComments(int postId, String comment) async {
     final response = await http.post(
       Uri.parse('${EndPoints.addCommentsUrl}/$postId/comments'),
       body: jsonEncode({
-        'postId': postId,
-        'name': name,
-        'body': body,
+        'userId': 2,
+        'body': comment,
       }),
       headers: {'Content-Type': 'application/json'},
     );
 
-    if (response.statusCode == 201) {
+    var res = handleResponse(response);
+    if (res != null) {
       return Comments.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed to add comment');
     }
   }
-  }
+}

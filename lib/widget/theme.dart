@@ -18,6 +18,8 @@ class AppTheme {
         bodyMedium: TextStyle(color: Colors.black, fontSize: 14.0),
         bodySmall: TextStyle(color: Colors.black, fontSize: 12.0),
         bodyLarge: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16.0),
+        displaySmall: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16.0),
+
       ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(

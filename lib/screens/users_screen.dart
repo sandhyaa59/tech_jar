@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_jar/controllers/user_controller.dart';
+import 'package:tech_jar/widget/appbar.dart';
 import 'package:tech_jar/widget/navigation_bar.dart';
 
 class UserScreen extends StatelessWidget {
@@ -8,8 +9,8 @@ class UserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Users'),
+      appBar: const CustomAppBar(
+        title: 'USers'
       ),
       bottomNavigationBar: BottomNavBar(),
      body: Obx(() {
@@ -22,7 +23,7 @@ class UserScreen extends StatelessWidget {
               child: ListView.builder(
 
                 shrinkWrap: true,
-                physics: ScrollPhysics(),
+                physics: const ScrollPhysics(),
                 itemCount: userController.userList.length,
                 itemBuilder: (context, index) {
                   return Padding(
@@ -42,7 +43,7 @@ class UserScreen extends StatelessWidget {
                                 children: [
                                   CircleAvatar(
                                     backgroundColor: Colors.grey.shade200,
-                                    child: Icon(Icons.person)),
+                                    child: const Icon(Icons.person)),
                                 ],
                               ),
                       title: Text(
