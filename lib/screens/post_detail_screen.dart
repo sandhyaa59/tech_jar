@@ -4,8 +4,7 @@ import 'package:tech_jar/controllers/post_controller.dart';
 import 'package:tech_jar/models/post_list.dart';
 import 'package:tech_jar/utils/constants.dart';
 import 'package:tech_jar/widget/appbar.dart';
-import 'package:tech_jar/widget/dialog.dart';
-import 'package:tech_jar/widget/formfields.dart';
+import 'package:tech_jar/widget/comment_card.dart';
 
 class PostDetailScreen extends StatelessWidget {
   final postController = Get.find<PostController>();
@@ -91,7 +90,7 @@ class PostDetailScreen extends StatelessWidget {
           const SizedBox(height: 15.0),
           const Text(
             'All Comments',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.0),
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16.0),
           ),
           const SizedBox(height: 15.0),
           SizedBox(
@@ -109,33 +108,10 @@ class PostDetailScreen extends StatelessWidget {
                   var comment = postComments[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Card(
-                      elevation: 5.0,
-                      shadowColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.blue.shade50),
-                        borderRadius: BorderRadius.circular(12.0),
-                        // border:
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(kPadding),
-                        decoration: BoxDecoration(
-                            boxShadow: const [BoxShadow(color: Colors.white)],
-                            borderRadius: BorderRadius.circular(12.0),
-                            border: Border.all(color: Colors.blue.shade50)),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                comment.name ?? "",
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                              const SizedBox(height: 6.0),
-                              Text(comment.body ?? ""),
-                              const SizedBox(height: 6.0),
-                            ]),
-                      ),
-                    ),
+                    child: CommentCard(
+          name: comment.name ?? "",
+          body: comment.body ?? "",
+        )
                   );
                 },
               );

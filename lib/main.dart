@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
    MyApp({super.key});
 NavigationController navigationController = Get.put(NavigationController());
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_jar/controllers/post_controller.dart';
 import 'package:tech_jar/utils/constants.dart';
+import 'package:tech_jar/widget/comment_card.dart';
 
 class CommentsBottomSheet extends StatelessWidget {
   final int postId;
@@ -44,33 +45,10 @@ class CommentsBottomSheet extends StatelessWidget {
                         .where((comment) => comment.postId == postId)
                         .map((comment) => Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Card(
-                      elevation: 5.0,
-                      shadowColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.blue.shade50),
-                        borderRadius: BorderRadius.circular(12.0),
-                        // border:
-                      ),
-                      child: Container(
-                        padding: const EdgeInsets.all(kPadding),
-                        decoration: BoxDecoration(
-                            boxShadow: const [BoxShadow(color: Colors.white)],
-                            borderRadius: BorderRadius.circular(12.0),
-                            border: Border.all(color: Colors.blue.shade50)),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                comment.name ?? "",
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                              const SizedBox(height: 6.0),
-                              Text(comment.body ?? ""),
-                              const SizedBox(height: 6.0),
-                            ]),
-                      ),
-                    ),
+                    child: CommentCard(
+          name: comment.name ?? "",
+          body: comment.body ?? "",
+        )
                   ))
                         .toList(),
                     const Divider(),

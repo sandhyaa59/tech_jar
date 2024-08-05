@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_jar/controllers/user_controller.dart';
+import 'package:tech_jar/utils/loading_overlay.dart';
 import 'package:tech_jar/widget/appbar.dart';
 import 'package:tech_jar/widget/navigation_bar.dart';
 
 class UserScreen extends StatelessWidget {
-  final userController=Get.find<UserController>();
+  final userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        title: 'USers'
-      ),
+      appBar: const CustomAppBar(title: 'USers'),
       bottomNavigationBar: BottomNavBar(),
-     body: Obx(() {
-          if (userController.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            return Container(
+      body: Obx(() {
+        return LoadingOverlay(
+            isLoading: userController.isLoading.value,
+            child: Container(
               padding: const EdgeInsets.all(12.0),
               height: Get.size.height,
               child: ListView.builder(
-
                 shrinkWrap: true,
                 physics: const ScrollPhysics(),
                 itemCount: userController.userList.length,
@@ -36,16 +33,17 @@ class UserScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                           side: const BorderSide(
-                            strokeAlign: BorderSide.strokeAlignCenter,
-                              color: Colors.grey, style: BorderStyle.solid)),
-                              leading: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CircleAvatar(
-                                    backgroundColor: Colors.grey.shade200,
-                                    child: const Icon(Icons.person)),
-                                ],
-                              ),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              color: Colors.grey,
+                              style: BorderStyle.solid)),
+                      leading: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                              backgroundColor: Colors.grey.shade200,
+                              child: const Icon(Icons.person)),
+                        ],
+                      ),
                       title: Text(
                         userController.userList[index].name ?? "",
                         style: const TextStyle(
@@ -70,9 +68,8 @@ class UserScreen extends StatelessWidget {
                   );
                 },
               ),
-            );
-          }
-        }),
+            ));
+      }),
     );
   }
 }
